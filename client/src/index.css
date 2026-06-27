@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+
+  body {
+    @apply font-body bg-uno-darker text-white min-h-screen;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(229, 57, 53, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(30, 136, 229, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(123, 31, 162, 0.06) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+
+  .glass-hover {
+    @apply glass transition-all duration-300 hover:bg-white/10 hover:border-white/20;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-uno-red to-uno-wild rounded-xl font-semibold
+           transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-uno-red/25
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 glass rounded-xl font-semibold transition-all duration-300
+           hover:bg-white/10 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl
+           focus:outline-none focus:border-uno-red/50 focus:ring-1 focus:ring-uno-red/25
+           placeholder:text-white/30 transition-all duration-200;
+  }
+
+  .card-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-uno-red via-uno-yellow to-uno-blue bg-clip-text text-transparent;
+  }
+}

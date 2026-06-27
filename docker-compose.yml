@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: uno-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: uno
+      POSTGRES_PASSWORD: uno_password
+      POSTGRES_DB: uno_game
+    ports:
+      - '5432:5432'
+    volumes:
+      - uno_pg_data:/var/lib/postgresql/data
+
+volumes:
+  uno_pg_data:
